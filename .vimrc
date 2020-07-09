@@ -1,3 +1,9 @@
+"不要使用vi的键盘模式，而是vim自己的
+set nocompatible
+
+set wildmenu
+set wrap
+
 "设置编码
 set fileencodings=utf-8,ucs-bom,gb18030,gb2312,cp936
 set termencoding=utf-8
@@ -96,7 +102,10 @@ noremap H 0
 noremap I $
 
 noremap l i
+noremap L I
 noremap s d
 noremap d s
+noremap S D
+noremap D S
 
 inoremap <C-k> <C-p>
