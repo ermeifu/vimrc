@@ -1,5 +1,6 @@
 "不要使用vi的键盘模式，而是vim自己的
 set nocompatible
+nnoremap <leader>" viw<esc>i"<esc>bi"<esc>lel
 
 set wildmenu
 set wrap
@@ -13,13 +14,15 @@ set encoding=utf-8
 syntax on "or: set syntax=on
 
 "设置行号"
-set number "or: set nu
+set number
+set numberwidth=4
 
 "设置相对行号
 set relativenumber "搭配set nu可以显示当前行号，否则显示当前行号为0
 
 "突出显示当前行
 set cursorline "or: set cul
+autocmd FileType markdown :set nocursorline
 
 "突出显示当前列
 "set cursorcolumn "or: set cuc
@@ -48,10 +51,13 @@ set cindent "按照C/C++风格缩进
 
 "不要用空格代替制表符
 set noexpandtab
+autocmd FileType python :set expandtab
+autocmd FileType swift :set expandtab
+"set expandtab
 
 "显示空格和Tab
 "set listchars=tab:\|\ ,trail:▫   
-set list listchars=extends:❯,precedes:❮,tab:▸-,trail:˽
+set list listchars=extends:❯,precedes:❮,tab:▸-,trail:˽,lead:˽
 
 "禁止生成临时文件
 set nobackup
@@ -59,6 +65,8 @@ set noswapfile
 
 "设置当文件被改动时自动载入
 set autoread
+
+set hlsearch
 
 "总是显示状态行
 set laststatus=2
@@ -73,6 +81,14 @@ filetype on
 set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
+
+iabbrev @@ ermeifu2299@163.com
+iabbrev @q 785507591
+iabbrev @x 2018051604061
+
+iabbrev @i int main() {<CR>}
+
+iabbrev ssig /*<cr>Author: ermeifu<cr>E-mail: ermeifu2299@163.com<cr><cr>*/<cr>
 
 "设置上下左右键为无效键，用于快速掌握h、j、k、l的移动方式
 "map <up> <nop>
@@ -92,6 +108,9 @@ imap nn <Esc>
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>a
 
+noremap zz zt
+noremap zt zz
+
 noremap n j
 noremap e k
 noremap i l
@@ -108,4 +127,10 @@ noremap d s
 noremap S D
 noremap D S
 
-inoremap <C-k> <C-p>
+noremap j n
+noremap J N
+"nnoremap <D-1> 1gt
+
+
+
+let g:airline_theme='simple'
